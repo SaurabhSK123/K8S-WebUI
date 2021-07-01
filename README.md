@@ -25,4 +25,5 @@ Feature necessary -
 
 
 
-In this task I use AWS Instance as my Backend server and configure kubernetes cluster with this webapp.
+In this task I use AWS instance as my Backend Server. firstly I configure Kubernetes cluster over the instances then Confiugred 
+httpd server and created K8S webapp as per task. 
