@@ -5,31 +5,20 @@
     <title>
         Docker Web App
     </title>
-    <script>
-        function docker()
-        {
-         window.location="http://13.234.120.254/docker.html"
-        }
-   
-        function kube()
-        {
-         window.location="http://13.234.120.254/k8s.html"
-        }
-    </script>
     <style>
         body, html {
         height: 100%;
         margin: 0;
         font-family: Arial, Helvetica, sans-serif;
     }
-
+    
     * {
         box-sizing: border-box;
     }
-
+    
     .bg-image {
         /* The image used */
-        background-image: url("docker-to-kube.png");
+        background-image: url("docker.jpg");
         
         /* Add the blur effect */
         filter: blur(8px);
@@ -43,7 +32,7 @@
         background-repeat: no-repeat;
         background-size: cover;
     }
-
+    
     /* Position text in the middle of the page/image */
     .bg-text {
         background-color: rgb(0,0,0); /* Fallback color */
@@ -61,6 +50,14 @@
         text-align: center;
     }
 
+    .btn{
+        background-color: white;
+        padding: 9px;
+        margin: 9px;
+        border-radius: 100px  ;
+        width: 90px;
+        margin-top: 150px;
+    }
     
     .h2
     {
@@ -78,34 +75,6 @@
         font-size: 1.8em;
         margin-top: 100px;
     }
-    .btn {
-        width: 200px;
-        height: 100px;
-        border: 5px solid #157ba3;
-        border-radius: 100px;
-        font-size: x-large;
-    }
-
-    #b1 {
-        float: left;
-        margin-left: 250px;
-        margin-top: 15px;
-    }
-    #b2 {
-        float: right;
-        margin-right: 250px;
-    }
-
-    .btn:hover{
-        background-color: rgb(25, 124, 218); 
-        border: 7px solid #f1f1f1;
-    }
-
-    .btn:active{
-        background-color: aquamarine;
-        box-shadow: 0 5px #6666;
-        transform: translateY(5px);
-    }
     </style>
     </head>
     <body>
@@ -113,19 +82,34 @@
     <div class="bg-image"></div>
 
     <div class="bg-text">
-        <center><h1 style="color: black;" >Welcome to the World of DevOps!</h1></center>
-        <h2>Select the technology you want to use..</h2>
+        <center><h1 style="color: black;" >Welcome to the world of Docker!</h1></center>
+        <h2>Enter your Requirement </h2>
             <div>
-                <button id="b1" class="btn" onclick="docker();">Docker</button>
-                </br>
-                <button id="b2" class="btn" onclick="kube();">Kubernetes</button>
-          </div>
-    </div>
+                <span style="color:white; font-style: bolid; border-radius: 100px;">[root@Dockerhost ~]#</span>
+                    <input  id="input" type="text" >
+                <br>
+                <pre><div id="d1" style="color:white; font-style: bolid; font-family: Avenir Next; "> (Hear Is Your Output)</divi></pre>
+                <center><button onclick="lw()" class="btn">Run</button></center>
+            </div>
 
     </div>
+    <script>
+
+        function lw() {
+
+            input = document.getElementById("input").value
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "http://13.234.120.254/cgi-bin/docker.py?x=" + input, true);
+            
+            xhr.send();
+
+
+            xhr.onload = function() {
+                    var output = xhr.responseText;
+                    document.getElementById("d1").innerHTML = output;
+            }
+        }
+
+    </script>
     </body>
     </html>
-
-        
-    
-        
