@@ -21,3 +21,8 @@ Feature necessary -
 👉 Delete specific resources given by user. 
 
 👉 Extra features related to k8s ( Optional) 
+
+
+
+
+In this task I use AWS Instance as my Backend server and configure kubernetes cluster with this webapp.
